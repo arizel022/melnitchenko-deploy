@@ -22,26 +22,26 @@ $(function () {
     // вызов меню
     $(function () {
         var menuVisible = false;
-        $('.menu__list').hide();
+
         // Показать / скрыть меню при клике на кнопку
         $('.burger-btn').click(function (e) {
             e.stopPropagation(); // Остановить всплытие события, чтобы не срабатывало на document.click
             menuVisible = !menuVisible;
             $(this).toggleClass('active');
-            $('.menu__list').slideToggle();
+            $('.menu').toggleClass('active');
         });
         // Скрыть меню при клике за его пределами
         $(document).click(function (e) {
-            if (menuVisible && !$(e.target).closest('.menu__list').length && !$(e.target).closest('.burger-btn').length) {
+            if (menuVisible && !$(e.target).closest('.menu').length && !$(e.target).closest('.burger-btn').length) {
                 $('.burger-btn').removeClass('active');
-                $('.menu__list').slideToggle();
+                $('.menu__list').removeClass('active');
                 menuVisible = false;
             }
         });
         // Скрыть меню при клике на элемент .menu__item
         $('.menu__item').click(function () {
             $('.burger-btn').removeClass('active');
-            $('.menu__list').slideToggle();
+            $('.menu').removeClass('active');
             menuVisible = false;
         });
     });
