@@ -1,5 +1,7 @@
+const swup = new Swup();
+
 $(function () {
-    // new WOW().init();
+
 
 
     // вызов меню
@@ -23,19 +25,16 @@ $(function () {
             }
         });
 
-        // Скрыть меню при клике на элемент .menu__item
-        // $('.menu__item').click(function () {
-        //     $('.burger-btn').removeClass('active');
-        //     $('.menu').removeClass('active');
-        //     menuVisible = false;
-        // });
+        $('.menu__link').click(function (e) {
+            $('.burger-btn').removeClass('active');
+            $('.menu').removeClass('active');
+            menuVisible = false;
+        });
     });
 
-    
 
 
-
-    // появление затемнения липкой шапки
+    // липкая шапка
     $(function () {
         var header = $('.header');
         var hero = $('.hero');
@@ -59,29 +58,17 @@ $(function () {
     });
 
 
-    // чтобы тег base не мешал якорным ссылкам + сразу же плавный скролл для всех якорных ссылок
-    // $(function () {
-    //     $("body").on('click', '[href*="#"]', function (e) {
-    //         var fixed_offset = 150;
-    //         $('html,body').stop().animate({ scrollTop: $(this.hash).offset().top - fixed_offset }, 800);
-    //         e.preventDefault();
-    //     });
-    // });
-
-    // $(document).on('mouseup', function (e) {
-    //     // Проверяем, был ли клик вне элемента .order и его дочерних элементов, а также
-    //     // наличие класса 'show' у элемента .backdrop
-    //     if (!$('.order').is(e.target) && $('.order').has(e.target).length === 0 && $('.backdrop').hasClass('show')) {
-    //         $('.backdrop').removeClass('show');
-    //     }
-    // });
-
-
-    
-    // if ($('.program__list').length) {
-    //     var mixer = mixitup('.program__list');
-    // }
-
-
 });
 
+
+
+
+// window.addEventListener('load', () => {
+//     updateCurrentLink(); // Вызов функции при загрузке страницы
+// });
+
+// //Swup reload updateCurrentLink
+// swup.hooks.on('page:view', (visit) => {
+//     console.log('New page loaded:', visit.to.url);
+//     updateCurrentLink(); // Повторный запуск функции обновления текущего элемента меню
+//   });

@@ -6,12 +6,23 @@
 </symbol>
 
 <svg class="icon" width="24" height="24">
-    <use href="images/icons/sprite.svg#icon-arrows"></use>
+    <use href="images/icons/sprite.svg#icon-doubleArrows"></use>
 </svg>
 -->
 
 <!-- ===========================menu -->
 <!-- ===========================menu end -->
+<symbol id="icon-doubleArrows" viewBox="0 0 24 24">
+<path d="M17.1501 13.8201L14.1101 16.86" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.8501 13.8201H17.1501" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.8501 10.1801L9.89011 7.14014" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.1501 10.1802H6.8501" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+
+
+
+
+
 
 <!-- ===========================social -->
 <symbol id="icon-fb" viewBox="0 0 20 20">
