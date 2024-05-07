@@ -2,8 +2,6 @@ const swup = new Swup();
 
 $(function () {
 
-
-
     // вызов меню
     $(function () {
         var menuVisible = false;
@@ -60,15 +58,134 @@ $(function () {
 
 });
 
+//табы
+document.addEventListener('DOMContentLoaded', function () {
+    // Первоначальная установка активных классов для кнопки infoBtn и блока infoContent
+    document.getElementById('infoBtn').classList.add('active');
+    document.getElementById('infoContent').classList.add('active');
+
+    // Назначаем обработчик события клика на все кнопки
+    document.querySelectorAll('.tabs__filter-button').forEach(function (button) {
+        button.addEventListener('click', function () {
+            // Удаляем класс active со всех кнопок и блоков контента
+            document.querySelectorAll('.tabs__filter-button').forEach(function (btn) {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.tabs__content-item').forEach(function (content) {
+                content.classList.remove('active');
+            });
+
+            // Добавляем класс active к текущей кнопке и соответствующему блоку контента
+            this.classList.add('active');
+            var contentId = this.getAttribute('id').replace('Btn', 'Content');
+            document.getElementById(contentId).classList.add('active');
+        });
+    });
+});
 
 
+//галерея с увеличением по клику, можно использовать на любой странице
+$(function () {
+    $('.lightFox').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        closeOnContentClick: false,
+        closeBtnInside: false,
+        mainClass: 'mfp-with-zoom mfp-img-mobile',
+        image: {
+            verticalFit: true,
+            titleSrc: function (item) {
+                return item.el.attr('title');
+            }
+        },
+        gallery: {
+            enabled: true
+        },
+        retina: {
+            ratio: 2, // Increase this number to enable retina image support.
+            // Image in popup will be scaled down by this number.
+            // Option can also be a function which should return a number (in case you support multiple ratios). For example:
+            // ratio: function() { return window.devicePixelRatio === 1.5 ? 1.5 : 2  }
+            replaceSrc: function (item, ratio) {
+                return item.src.replace(/\.\w+$/, function (m) {
+                    return '-2x' + m;
+                });
+            } // function that changes image source
+        },
+        zoom: {
+            enabled: true,
+            duration: 300,
+            opener: function (element) {
+                return element.find('img');
+            }
+        },
+        swipe: {
+            enabled: true
+        }
+    });
+});
 
-// window.addEventListener('load', () => {
-//     updateCurrentLink(); // Вызов функции при загрузке страницы
-// });
 
-// //Swup reload updateCurrentLink
-// swup.hooks.on('page:view', (visit) => {
-//     console.log('New page loaded:', visit.to.url);
-//     updateCurrentLink(); // Повторный запуск функции обновления текущего элемента меню
-//   });
+//Swup reload
+swup.hooks.on('page:view', (visit) => {
+
+    //табы
+    document.querySelectorAll('.tabs__filter-button').forEach(function (button) {
+        button.addEventListener('click', function () {
+            // Удаляем класс active со всех кнопок и блоков контента
+            document.querySelectorAll('.tabs__filter-button').forEach(function (btn) {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.tabs__content-item').forEach(function (content) {
+                content.classList.remove('active');
+            });
+
+            // Добавляем класс active к текущей кнопке и соответствующему блоку контента
+            this.classList.add('active');
+            var contentId = this.getAttribute('id').replace('Btn', 'Content');
+            document.getElementById(contentId).classList.add('active');
+        });
+    });
+
+    $(function () {
+        $('.lightFox').magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            closeOnContentClick: false,
+            closeBtnInside: false,
+            mainClass: 'mfp-with-zoom mfp-img-mobile',
+            image: {
+                verticalFit: true,
+                titleSrc: function (item) {
+                    return item.el.attr('title');
+                }
+            },
+            gallery: {
+                enabled: true
+            },
+            retina: {
+                ratio: 2, // Increase this number to enable retina image support.
+                // Image in popup will be scaled down by this number.
+                // Option can also be a function which should return a number (in case you support multiple ratios). For example:
+                // ratio: function() { return window.devicePixelRatio === 1.5 ? 1.5 : 2  }
+                replaceSrc: function (item, ratio) {
+                    return item.src.replace(/\.\w+$/, function (m) {
+                        return '-2x' + m;
+                    });
+                } // function that changes image source
+            },
+            zoom: {
+                enabled: true,
+                duration: 300,
+                opener: function (element) {
+                    return element.find('img');
+                }
+            },
+            swipe: {
+                enabled: true
+            }
+        });
+    });
+});
+
+
