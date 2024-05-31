@@ -125,6 +125,19 @@ $(function () {
     });
 });
 
+//гармошка блока faq
+if ($('.progress__ans').length) {
+    $(function () {
+        $('.progress__ans').hide();
+        $('.progress__question').click(function () { //при клике на вопрос
+            $(this).toggleClass('open'); //применяются стили текущего вопроса
+            $(this).siblings('.progress__ans').slideToggle('slow', function () { //появляется ответ текущего вопроса
+                $('.progress__ans').not(this).hide('slow'); //скрывается ответ НЕ текущего вопроса
+                $('.progress__ans').not(this).prev('.progress__question').removeClass('open'); //НЕ текущий вопрос теряет стили открытого
+            });
+        });
+    });
+}
 
 //Swup reload
 swup.hooks.on('page:view', (visit) => {
@@ -147,6 +160,7 @@ swup.hooks.on('page:view', (visit) => {
         });
     });
 
+    //галерея с увеличением по клику, можно использовать на любой странице
     $(function () {
         $('.lightFox').magnificPopup({
             delegate: 'a',
@@ -186,6 +200,20 @@ swup.hooks.on('page:view', (visit) => {
             }
         });
     });
+
+    //гармошка блока faq
+    if ($('.progress__ans').length) {
+        $(function () {
+            $('.progress__ans').hide();
+            $('.progress__question').click(function () { //при клике на вопрос
+                $(this).toggleClass('open'); //применяются стили текущего вопроса
+                $(this).siblings('.progress__ans').slideToggle('slow', function () { //появляется ответ текущего вопроса
+                    $('.progress__ans').not(this).hide('slow'); //скрывается ответ НЕ текущего вопроса
+                    $('.progress__ans').not(this).prev('.progress__question').removeClass('open'); //НЕ текущий вопрос теряет стили открытого
+                });
+            });
+        });
+    }
 });
 
 
