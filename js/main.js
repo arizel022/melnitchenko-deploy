@@ -1,7 +1,6 @@
 const swup = new Swup();
 
 $(function () {
-
     // вызов меню
     $(function () {
         var menuVisible = false;
@@ -30,8 +29,6 @@ $(function () {
         });
     });
 
-
-
     // липкая шапка
     $(function () {
         var header = $('.header');
@@ -55,7 +52,7 @@ $(function () {
         });
     });
 
-
+    //*этот код не нужно добавлять в Swup reload - тогда все работает. Если добавить - нет.
 });
 
 //табы
@@ -82,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
 
 //галерея с увеличением по клику, можно использовать на любой странице
 $(function () {
@@ -125,7 +121,7 @@ $(function () {
     });
 });
 
-//гармошка блока faq
+//гармошка
 if ($('.progress__ans').length) {
     $(function () {
         $('.progress__ans').hide();
@@ -139,8 +135,17 @@ if ($('.progress__ans').length) {
     });
 }
 
+
+
+
+
+
+
+
 //Swup reload
 swup.hooks.on('page:view', (visit) => {
+
+
 
     //табы
     document.querySelectorAll('.tabs__filter-button').forEach(function (button) {
@@ -201,7 +206,7 @@ swup.hooks.on('page:view', (visit) => {
         });
     });
 
-    //гармошка блока faq
+    //гармошка
     if ($('.progress__ans').length) {
         $(function () {
             $('.progress__ans').hide();
